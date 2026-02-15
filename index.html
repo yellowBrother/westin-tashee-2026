@@ -542,31 +542,147 @@
   <div class="card">
     <div class="card-header">
       <div class="icon" style="background: var(--blue-bg);">🌤</div>
-      <h2>天氣預報</h2>
-      <span class="badge" style="background: var(--yellow-bg); color: #946200;">帶外套</span>
+      <h2>天氣預報 (每 3 小時)</h2>
+      <span class="badge" style="background: var(--red-bg); color: var(--red);">偏冷！帶外套</span>
     </div>
-    <div class="weather-grid">
-      <div class="weather-day">
-        <div class="day-label">2/17 一</div>
-        <div class="weather-icon">⛅</div>
-        <div class="temp">18-22°C</div>
-        <div class="desc">多雲時晴</div>
+
+    <!-- Day 1 -->
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 13px; font-weight: 600; color: var(--accent-dark); margin-bottom: 8px;">2/17 (一) 初一 — 陰天，不下雨</div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; text-align: center;">
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">07:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">16°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨14</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">10:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">18°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨18</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--yellow-bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">12:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--accent-dark);">19°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨23</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">15:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">18°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨21</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">18:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">16°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨18</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">21:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">15°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨15</div>
+        </div>
       </div>
-      <div class="weather-day">
-        <div class="day-label">2/18 二</div>
-        <div class="weather-icon">🌥</div>
-        <div class="temp">17-21°C</div>
-        <div class="desc">多雲偶陣雨</div>
-      </div>
-      <div class="weather-day">
-        <div class="day-label">2/19 三</div>
-        <div class="weather-icon">⛅</div>
-        <div class="temp">18-22°C</div>
-        <div class="desc">多雲</div>
-      </div>
+      <div style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">高溫 19° / 低溫 15° &bull; 降雨 0% &bull; 風速 14-23 km/h</div>
     </div>
+
+    <!-- Day 2 -->
+    <div style="margin-bottom: 16px;">
+      <div style="font-size: 13px; font-weight: 600; color: var(--blue); margin-bottom: 8px;">2/18 (二) 初二 — 陰冷有風，最冷的一天 🥶</div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; text-align: center;">
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">07:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">14°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨15</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">10:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">15°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨20</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--blue-bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">12:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700; color: var(--blue);">16°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨22</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">15:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">15°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨23</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">18:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">14°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨21</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">21:00</div>
+          <div style="font-size: 18px;">🌥</div>
+          <div style="font-size: 15px; font-weight: 700;">14°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨18</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: var(--red); font-weight: 500; margin-top: 6px;">高溫只有 16° / 低溫 14° &bull; 風速 15-23 km/h &bull; 體感溫度約 10-12°</div>
+    </div>
+
+    <!-- Day 3 -->
+    <div>
+      <div style="font-size: 13px; font-weight: 600; color: #1B7A34; margin-bottom: 8px;">2/19 (三) 初三 — 回暖！最好的天氣 ☀️</div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 4px; text-align: center;">
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">07:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700;">15°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨11</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">10:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700;">18°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨14</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--green-bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">12:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700; color: #1B7A34;">20°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨15</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--green-bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">15:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700; color: #1B7A34;">20°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨14</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">18:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700;">18°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨10</div>
+        </div>
+        <div style="padding: 8px 2px; background: var(--bg); border-radius: 8px;">
+          <div style="font-size: 10px; color: var(--text-secondary);">21:00</div>
+          <div style="font-size: 18px;">⛅</div>
+          <div style="font-size: 15px; font-weight: 700;">15°</div>
+          <div style="font-size: 10px; color: var(--text-secondary);">💨4</div>
+        </div>
+      </div>
+      <div style="font-size: 12px; color: #1B7A34; font-weight: 500; margin-top: 6px;">高溫 20° / 低溫 14° &bull; 降雨 0% &bull; 風速減弱 — 適合戶外</div>
+    </div>
+
     <div class="callout callout-yellow" style="margin-top: 14px;">
-      💡 大溪山區天氣變化快，外出帶薄外套 + 輕便雨具。室內泳池是雨天的最佳備案。
+      💡 <strong>穿搭建議：</strong>Day 2 最冷 (體感 10-12°)，袋鼠小姐需要厚外套 + 帽子。Day 3 回暖到 20°，薄外套即可。室內泳池恆溫，不受影響。
+    </div>
+    <div style="font-size: 11px; color: var(--text-secondary); margin-top: 8px; text-align: right;">
+      資料來源：<a href="https://open-meteo.com/" target="_blank" style="color: var(--text-secondary);">Open-Meteo</a> &bull; 大溪 (24.88°N, 121.29°E) &bull; 更新：Feb 15
     </div>
   </div>
 
