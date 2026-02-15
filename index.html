@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Westin Tashee 家庭旅行 — Feb 17-19, 2026</title>
+<style>
+  :root {
+    --bg: #FAFAF8;
+    --card: #FFFFFF;
+    --accent: #D4956A;
+    --accent-light: #F5E6D8;
+    --accent-dark: #B8764E;
+    --text: #1D1D1F;
+    --text-secondary: #6E6E73;
+    --green: #34C759;
+    --green-bg: #E8F9ED;
+    --yellow: #FF9F0A;
+    --yellow-bg: #FFF5E0;
+    --red: #FF3B30;
+    --red-bg: #FFE5E3;
+    --blue: #007AFF;
+    --blue-bg: #E3F0FF;
+    --border: #E5E5EA;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+
+  /* Header */
+  .hero {
+    text-align: center;
+    padding: 48px 20px 36px;
+    background: linear-gradient(135deg, #F5E6D8 0%, #FAEBD7 50%, #FFF8F0 100%);
+    border-radius: 0 0 32px 32px;
+    margin: -20px -16px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    background: rgba(212,149,106,0.12);
+    border-radius: 50%;
+  }
+  .hero-emoji { font-size: 48px; margin-bottom: 12px; }
+  .hero h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+  .hero .subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+  .hero .dates {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 16px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--accent-dark);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .card-header .icon {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .card-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+  .card-header .badge {
+    margin-left: auto;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+
+  /* Verdict */
+  .verdict {
+    background: linear-gradient(135deg, #E8F9ED 0%, #F0FBF4 100%);
+    border: 1px solid #C6F0D0;
+  }
+  .verdict .verdict-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1B7A34;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .verdict ul {
+    list-style: none;
+    padding: 0;
+  }
+  .verdict li {
+    padding: 8px 0;
+    padding-left: 28px;
+    position: relative;
+    font-size: 15px;
+    color: #2D5F3A;
+  }
+  .verdict li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 16px;
+  }
+
+  /* Weather */
+  .weather-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .weather-day {
+    text-align: center;
+    padding: 14px 8px;
+    background: var(--blue-bg);
+    border-radius: var(--radius-sm);
+  }
+  .weather-day .day-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .weather-day .temp {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text);
+    margin: 4px 0;
+  }
+  .weather-day .desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  .weather-day .weather-icon {
+    font-size: 28px;
+    margin: 4px 0;
+  }
+
+  /* Timeline */
+  .timeline {
+    position: relative;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--border);
+    border-radius: 1px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 20px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -23px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--card);
+    box-shadow: 0 0 0 2px var(--accent-light);
+  }
+  .timeline-time {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    margin-bottom: 2px;
+  }
+  .timeline-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .timeline-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .timeline-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 4px;
+  }
+  .tag-tip { background: var(--yellow-bg); color: #946200; }
+  .tag-warn { background: var(--red-bg); color: var(--red); }
+  .tag-info { background: var(--blue-bg); color: var(--blue); }
+  .tag-ok { background: var(--green-bg); color: #1B7A34; }
+
+  /* Day header */
+  .day-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    border-radius: var(--radius-sm);
+    margin-bottom: 16px;
+  }
+  .day-banner.day1 { background: linear-gradient(135deg, var(--accent-light), #FFF3E8); }
+  .day-banner.day2 { background: linear-gradient(135deg, var(--blue-bg), #F0F7FF); }
+  .day-banner.day3 { background: linear-gradient(135deg, var(--green-bg), #F0FBF4); }
+  .day-banner .day-num {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .day-banner.day1 .day-num { color: var(--accent-dark); }
+  .day-banner.day2 .day-num { color: var(--blue); }
+  .day-banner.day3 .day-num { color: #1B7A34; }
+  .day-banner .day-info h3 {
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .day-banner .day-info p {
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Attractions grid */
+  .attractions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @media (max-width: 480px) {
+    .attractions-grid { grid-template-columns: 1fr; }
+  }
+  .attraction-card {
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--card);
+  }
+  .attraction-card h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .attraction-meta {
+    font-size: 12px;
+    color: var(--text-secondary);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .attraction-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .attraction-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .attraction-status {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    margin-top: 6px;
+  }
+
+  /* Cons */
+  .con-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .con-item:last-child { border-bottom: none; }
+  .con-num {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--red-bg);
+    color: var(--red);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .con-text {
+    font-size: 14px;
+    color: var(--text);
+  }
+  .con-text strong {
+    font-weight: 600;
+  }
+  .con-fix {
+    font-size: 13px;
+    color: var(--green);
+    font-weight: 500;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .con-fix::before {
+    content: '→';
+    color: var(--text-secondary);
+  }
+
+  /* Checklist */
+  .checklist {
+    columns: 2;
+    column-gap: 16px;
+  }
+  @media (max-width: 480px) {
+    .checklist { columns: 1; }
+  }
+  .checklist-section {
+    break-inside: avoid;
+    margin-bottom: 16px;
+  }
+  .checklist-section h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 4px 0;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Tips */
+  .tip-card {
+    display: flex;
+    gap: 12px;
+    padding: 14px;
+    background: var(--yellow-bg);
+    border-radius: var(--radius-sm);
+    margin-bottom: 10px;
+  }
+  .tip-card:last-child { margin-bottom: 0; }
+  .tip-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .tip-content {
+    font-size: 14px;
+    color: #614A00;
+    line-height: 1.5;
+  }
+  .tip-content strong {
+    font-weight: 600;
+    color: #4A3800;
+  }
+
+  /* Section divider */
+  .section-divider {
+    text-align: center;
+    margin: 32px 0 24px;
+    position: relative;
+  }
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-divider span {
+    position: relative;
+    background: var(--bg);
+    padding: 0 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* Info callout */
+  .callout {
+    padding: 14px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+  .callout-blue { background: var(--blue-bg); color: #004A99; }
+  .callout-yellow { background: var(--yellow-bg); color: #614A00; }
+  .callout-red { background: var(--red-bg); color: #990F00; }
+
+  /* Event links (Google Maps etc) */
+  .event-links { margin-top: 6px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .event-links a {
+    font-size: 13px; color: var(--accent-dark); text-decoration: none;
+    display: inline-flex; align-items: center; gap: 4px;
+  }
+  .event-links a:hover { text-decoration: underline; }
+  .event-links a::before { content: '📍'; font-size: 12px; }
+  .event-links a.phone::before { content: '📞'; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    padding: 32px 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; }
+    .container { max-width: 100%; padding: 0; }
+    .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+    .hero { background: #f5f5f5 !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-emoji">🏨</div>
+    <h1>Westin Tashee 家庭旅行</h1>
+    <p class="subtitle">大溪威斯汀 ・ J + F + 袋鼠小姐 🦘</p>
+    <div class="dates">2026 Feb 17 (一) → Feb 19 (三) ・ 2 晚</div>
+    <div style="margin-top: 8px;">
+      <a href="https://www.google.com/maps/search/?api=1&query=Westin+Tashee+Resort+Daxi+Taoyuan" target="_blank" style="font-size: 13px; color: var(--accent-dark); text-decoration: none;">📍 Westin Tashee 地圖</a>
+    </div>
+  </div>
+
+  <!-- Verdict -->
+  <div class="card verdict">
+    <div class="verdict-title">✅ 2 晚 = 正確的選擇</div>
+    <ul>
+      <li><strong>室內溫水泳池全年開放</strong> — 小朋友可以游兩次，不用趕</li>
+      <li><strong>平日入住 (一、二)</strong> — 人少、設施不排隊、價格更好</li>
+      <li><strong>大溪附近景點豐富</strong> — 老街、花鹿秘境、公園，每天都有地方跑</li>
+    </ul>
+  </div>
+
+  <!-- Weather -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: var(--blue-bg);">🌤</div>
+      <h2>天氣預報</h2>
+      <span class="badge" style="background: var(--yellow-bg); color: #946200;">帶外套</span>
+    </div>
+    <div class="weather-grid">
+      <div class="weather-day">
+        <div class="day-label">2/17 一</div>
+        <div class="weather-icon">⛅</div>
+        <div class="temp">18-22°C</div>
+        <div class="desc">多雲時晴</div>
+      </div>
+      <div class="weather-day">
+        <div class="day-label">2/18 二</div>
+        <div class="weather-icon">🌥</div>
+        <div class="temp">17-21°C</div>
+        <div class="desc">多雲偶陣雨</div>
+      </div>
+      <div class="weather-day">
+        <div class="day-label">2/19 三</div>
+        <div class="weather-icon">⛅</div>
+        <div class="temp">18-22°C</div>
+        <div class="desc">多雲</div>
+      </div>
+    </div>
+    <div class="callout callout-yellow" style="margin-top: 14px;">
+      💡 大溪山區天氣變化快，外出帶薄外套 + 輕便雨具。室內泳池是雨天的最佳備案。
+    </div>
+  </div>
+
+  <!-- Day 1 -->
+  <div class="section-divider"><span>行程安排</span></div>
+
+  <div class="card">
+    <div class="day-banner day1">
+      <div class="day-num">01</div>
+      <div class="day-info">
+        <h3>2026/2/17 (一) — 出發 + 入住日</h3>
+        <p>大溪老街 → Check-in → 泳池 → Go Go Park</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">~11:00</div>
+        <div class="timeline-title">🚗 從台北出發</div>
+        <div class="timeline-desc">國道三號 → 大溪交流道，車程約 50 分鐘。平日不塞車。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~12:00</div>
+        <div class="timeline-title">🏮 大溪老街午餐</div>
+        <div class="timeline-desc">距飯店 10 分鐘。必吃：黃日香豆干、賴家豆花、老阿伯現滷豆干。老街有電梯，推車 OK。</div>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪老街+Daxi+Old+Street+Taoyuan" target="_blank">Google Maps 地圖</a></div>
+        <span class="timeline-tag tag-tip">逛 1-1.5 小時</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~14:00</div>
+        <div class="timeline-title">🏨 Check-in</div>
+        <div class="timeline-desc">提早到可先寄行李、逛大廳。房間可能要 15:00 才準備好。</div>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=Westin+Tashee+Resort+Daxi+Taoyuan" target="_blank">Google Maps 地圖</a></div>
+        <span class="timeline-tag tag-warn">可能要等 — 別急</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~15:00</div>
+        <div class="timeline-title">🏊 室內溫水泳池 + SPA</div>
+        <div class="timeline-desc">全年開放、恆溫。有按摩浴缸、蒸氣室、三溫暖。袋鼠小姐第一次玩水的好機會！</div>
+        <span class="timeline-tag tag-ok">07:00-13:00 / 14:00-21:00</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~17:00</div>
+        <div class="timeline-title">🎠 Go Go Park</div>
+        <div class="timeline-desc">旋轉木馬、溜滑梯、迷你高爾夫都可以玩。需家長陪同。</div>
+        <span class="timeline-tag tag-warn">Go-kart 要 3 歲以上，不能坐</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~18:30</div>
+        <div class="timeline-title">🍽 飯店晚餐</div>
+        <div class="timeline-desc">Buffet 或餐廳。務必提前預訂，現場很容易客滿。</div>
+        <span class="timeline-tag tag-warn">一定要先訂位</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~20:00</div>
+        <div class="timeline-title">🌙 回房休息</div>
+        <div class="timeline-desc">幫袋鼠小姐洗澡、飯店有提供嬰兒澡盆。商店 20:00 關門前買零食。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 2 -->
+  <div class="card">
+    <div class="day-banner day2">
+      <div class="day-num">02</div>
+      <div class="day-info">
+        <h3>2026/2/18 (二) — 完整一天</h3>
+        <p>外出景點 → 午餐 → 泳池 Round 2 → 園區散步</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">~09:00</div>
+        <div class="timeline-title">🥞 飯店早餐</div>
+        <div class="timeline-desc">不趕行程，慢慢吃。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~10:00</div>
+        <div class="timeline-title">🦌 花鹿秘境 (首選)</div>
+        <div class="timeline-desc">開車 15 分鐘。可以餵兔子、迷你豬、梅花鹿。未滿 6 歲免費。小朋友超愛！</div>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=花鹿秘境+大溪+桃園" target="_blank">Google Maps 地圖</a></div>
+        <span class="timeline-tag tag-warn">水池旁邊窄 — 牽好袋鼠小姐的手</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time"></div>
+        <div class="timeline-title">🛝 備案：大溪埔頂公園</div>
+        <div class="timeline-desc">開車 10 分鐘。溜滑梯、鞦韆、大草坪。免費。袋鼠小姐放電天堂。如果下雨或花鹿秘境不想去，這是最佳替代。</div>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪埔頂公園+桃園" target="_blank">Google Maps 地圖</a></div>
+        <span class="timeline-tag tag-info">備案 — 不用預約</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~12:00</div>
+        <div class="timeline-title">🍜 午餐</div>
+        <div class="timeline-desc">回飯店吃或在大溪市區覓食。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~14:00</div>
+        <div class="timeline-title">🏊 泳池 Round 2 / Spa</div>
+        <div class="timeline-desc">14:00 泳池重新開放。爸媽可以輪流帶小孩 + 享受 SPA。</div>
+        <span class="timeline-tag tag-ok">泳池 14:00 重新開放</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~15:30</div>
+        <div class="timeline-title">🎠 Go Go Park / 園區散步</div>
+        <div class="timeline-desc">再玩一輪旋轉木馬，或在度假村草坪散步。平日人少，不用排隊。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~18:00</div>
+        <div class="timeline-title">🍽 晚餐</div>
+        <div class="timeline-desc">換一家餐廳試試，或叫客房服務（但價格偏貴）。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~20:00</div>
+        <div class="timeline-title">🌙 早點休息</div>
+        <div class="timeline-desc">明天要退房，早睡早起。</div>
+      </div>
+    </div>
+
+    <div class="callout callout-red" style="margin-top: 12px;">
+      ⚠️ 蘇家莊園 (週二、三公休) — 今天和明天都不開，所以不排入行程。
+    </div>
+  </div>
+
+  <!-- Day 3 -->
+  <div class="card">
+    <div class="day-banner day3">
+      <div class="day-num">03</div>
+      <div class="day-info">
+        <h3>2026/2/19 (三) — 退房日</h3>
+        <p>最後一泳 → Check-out → 順路玩一下 → 回家</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-time">~08:00</div>
+        <div class="timeline-title">🥞 早餐</div>
+        <div class="timeline-desc">最後一頓飯店早餐，不趕。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~09:30</div>
+        <div class="timeline-title">🏊 最後一泳</div>
+        <div class="timeline-desc">泳池 07:00 就開放。退房前帶袋鼠小姐再玩一次水。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~11:00</div>
+        <div class="timeline-title">🏨 Check-out</div>
+        <div class="timeline-desc">打包上車。</div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~11:30</div>
+        <div class="timeline-title">🏴‍☠️ 大溪河濱公園 (順路)</div>
+        <div class="timeline-desc">回程順路。海盜船遊樂場、自行車道。讓袋鼠小姐最後放電一輪。免費。</div>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪河濱公園+桃園" target="_blank">Google Maps 地圖</a></div>
+        <span class="timeline-tag tag-info">在回台北的路上</span>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-time">~13:00</div>
+        <div class="timeline-title">🚗 回家</div>
+        <div class="timeline-desc">週三下午，國道不塞。袋鼠小姐應該在車上秒睡。</div>
+        <span class="timeline-tag tag-ok">完美收尾</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nearby Attractions -->
+  <div class="section-divider"><span>附近景點</span></div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: var(--accent-light);">📍</div>
+      <h2>周邊推薦</h2>
+    </div>
+
+    <div class="attractions-grid">
+      <div class="attraction-card">
+        <h4>🏮 大溪老街</h4>
+        <div class="attraction-meta">
+          <span>🚗 10 分鐘</span>
+          <span>💰 免費</span>
+        </div>
+        <p>巴洛克老建築、必吃豆干豆花。有電梯，推車 OK。早上去避開人潮。</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪老街+Daxi+Old+Street+Taoyuan" target="_blank">地圖</a></div>
+        <span class="attraction-status tag-ok">👶 推車友善</span>
+      </div>
+
+      <div class="attraction-card">
+        <h4>🦌 花鹿秘境</h4>
+        <div class="attraction-meta">
+          <span>🚗 15 分鐘</span>
+          <span>💰 免費 (&lt;6歲)</span>
+        </div>
+        <p>餵兔子、迷你豬、梅花鹿。冬天無法玩水。池邊窄，要牽好小朋友。</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=花鹿秘境+大溪+桃園" target="_blank">地圖</a></div>
+        <span class="attraction-status tag-ok">👶 適合幼兒</span>
+      </div>
+
+      <div class="attraction-card">
+        <h4>🏡 蘇家莊園</h4>
+        <div class="attraction-meta">
+          <span>🚗 15 分鐘</span>
+          <span>💰 免費 (&lt;3歲)</span>
+        </div>
+        <p>小動物、日式庭園。適合小朋友但行程期間都公休。</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=蘇家莊園+大溪+桃園" target="_blank">地圖</a></div>
+        <span class="attraction-status tag-warn">⚠️ 週二三公休</span>
+      </div>
+
+      <div class="attraction-card">
+        <h4>🛝 大溪埔頂公園</h4>
+        <div class="attraction-meta">
+          <span>🚗 10 分鐘</span>
+          <span>💰 免費</span>
+        </div>
+        <p>溜滑梯、鞦韆、大草坪。最適合超活躍的袋鼠小姐放電！</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪埔頂公園+桃園" target="_blank">地圖</a></div>
+        <span class="attraction-status tag-ok">👶 放電天堂</span>
+      </div>
+
+      <div class="attraction-card">
+        <h4>🏴‍☠️ 大溪河濱公園</h4>
+        <div class="attraction-meta">
+          <span>🚗 10 分鐘</span>
+          <span>💰 免費</span>
+        </div>
+        <p>海盜船遊樂場、自行車道。退房後順路停一下。</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=大溪河濱公園+桃園" target="_blank">地圖</a></div>
+        <span class="attraction-status tag-ok">👶 退房順路</span>
+      </div>
+
+      <div class="attraction-card">
+        <h4>🏞 慈湖</h4>
+        <div class="attraction-meta">
+          <span>🚗 15 分鐘</span>
+          <span>💰 免費</span>
+        </div>
+        <p>步道 + 銅像公園。比較適合大人，小朋友可能覺得無聊。</p>
+        <div class="event-links"><a href="https://www.google.com/maps/search/?api=1&query=慈湖+Cihu+大溪+桃園" target="_blank">地圖</a></div>
+        <span class="attraction-status" style="background: var(--yellow-bg); color: #946200;">😐 較不適合幼兒</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Honest Cons -->
+  <div class="section-divider"><span>實用資訊</span></div>
+
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: var(--red-bg);">⚡</div>
+      <h2>注意事項 (真心話)</h2>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">1</div>
+      <div>
+        <div class="con-text"><strong>Check-in 可能很慢</strong> — 有人等了 40 分鐘以上</div>
+        <div class="con-fix">提早到先寄行李，去逛園區</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">2</div>
+      <div>
+        <div class="con-text"><strong>餐廳常常客滿</strong> — 現場排隊可能等很久</div>
+        <div class="con-fix">出發前就打電話訂位，兩天晚餐都要訂</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">3</div>
+      <div>
+        <div class="con-text"><strong>泳池旁躺椅搶手</strong> — 假日一位難求</div>
+        <div class="con-fix">平日住 + 早點去，問題不大</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">4</div>
+      <div>
+        <div class="con-text"><strong>Go-kart 要 3 歲 + 25 公斤</strong> — 袋鼠小姐不能坐</div>
+        <div class="con-fix">旋轉木馬、溜滑梯、迷你高爾夫照玩</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">5</div>
+      <div>
+        <div class="con-text"><strong>客房服務價格偏貴</strong> — 被評為「離譜」等級</div>
+        <div class="con-fix">商店 20:00 前買零食泡麵當備案</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">6</div>
+      <div>
+        <div class="con-text"><strong>戶外泳池不加熱</strong> — 二月太冷無法使用</div>
+        <div class="con-fix">室內溫水池全年開放，才是主力</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">7</div>
+      <div>
+        <div class="con-text"><strong>沒有床圍</strong> — 幼兒和大人同床要注意安全</div>
+        <div class="con-fix">可請飯店提供嬰兒床 (訂房時先說)</div>
+      </div>
+    </div>
+
+    <div class="con-item">
+      <div class="con-num">8</div>
+      <div>
+        <div class="con-text"><strong>Buffet CP 值普通</strong> — 有些人覺得不值那個價</div>
+        <div class="con-fix">可以選單點餐廳或外出吃</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Packing Checklist -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: var(--accent-light);">🧳</div>
+      <h2>打包清單</h2>
+    </div>
+
+    <div class="checklist">
+      <div class="checklist-section">
+        <h4>👶 袋鼠小姐</h4>
+        <div class="checklist-item"><div class="checkbox"></div>泳衣 + 游泳尿布</div>
+        <div class="checklist-item"><div class="checkbox"></div>保暖外套 (薄羽絨)</div>
+        <div class="checklist-item"><div class="checkbox"></div>換洗衣物 x3 套</div>
+        <div class="checklist-item"><div class="checkbox"></div>慣用奶瓶/水杯</div>
+        <div class="checklist-item"><div class="checkbox"></div>零食 + 備用食物</div>
+        <div class="checklist-item"><div class="checkbox"></div>尿布 (帶夠 3 天)</div>
+        <div class="checklist-item"><div class="checkbox"></div>慣用的安撫物</div>
+        <div class="checklist-item"><div class="checkbox"></div>推車</div>
+      </div>
+
+      <div class="checklist-section">
+        <h4>👫 大人</h4>
+        <div class="checklist-item"><div class="checkbox"></div>泳衣 + 泳帽</div>
+        <div class="checklist-item"><div class="checkbox"></div>薄外套 / 風衣</div>
+        <div class="checklist-item"><div class="checkbox"></div>輕便雨具</div>
+        <div class="checklist-item"><div class="checkbox"></div>舒適走路鞋</div>
+        <div class="checklist-item"><div class="checkbox"></div>充電器 + 行動電源</div>
+        <div class="checklist-item"><div class="checkbox"></div>健保卡 (全家)</div>
+      </div>
+
+      <div class="checklist-section">
+        <h4>🏨 飯店有提供</h4>
+        <div class="checklist-item"><div class="checkbox"></div>嬰兒床 (需提前預約)</div>
+        <div class="checklist-item"><div class="checkbox"></div>嬰兒澡盆</div>
+        <div class="checklist-item"><div class="checkbox"></div>溫奶器 + 消毒鍋</div>
+        <div class="checklist-item"><div class="checkbox"></div>兒童踏腳凳</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tips -->
+  <div class="card">
+    <div class="card-header">
+      <div class="icon" style="background: var(--yellow-bg);">💡</div>
+      <h2>實用 Tips</h2>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">📞</div>
+      <div class="tip-content">
+        <strong>現在就打電話訂晚餐</strong><br>
+        兩天的晚餐都要先訂。飯店電話：<a href="tel:+886-3-307-2858" style="color: #4A3800; font-weight: 600;">03-307-2858</a>。說有幼兒，請安排方便的座位。
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🛏</div>
+      <div class="tip-content">
+        <strong>訂房時備註嬰兒需求</strong><br>
+        嬰兒床、澡盆、溫奶器、消毒鍋 — 訂房時一次講清楚，到了直接用。
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">⏰</div>
+      <div class="tip-content">
+        <strong>可以嘗試要求 Early Check-in</strong><br>
+        打電話問能不能提早入房（13:00-14:00）。平日空房率較高，有機會成功。
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🏪</div>
+      <div class="tip-content">
+        <strong>飯店商店 20:00 關門</strong><br>
+        零食、泡麵、飲料要在關門前買好。也可以在大溪老街先買。
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🏊</div>
+      <div class="tip-content">
+        <strong>泳池 13:00-14:00 休息</strong><br>
+        午餐時間泳池暫停清潔。安排中午吃飯、14:00 後再去。
+      </div>
+    </div>
+
+    <div class="tip-card">
+      <div class="tip-icon">🚗</div>
+      <div class="tip-content">
+        <strong>帶幼兒出門 = 彈性為王</strong><br>
+        行程看起來很滿但都很近。袋鼠小姐累了就回飯店，不勉強。度假不是趕行程。
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>Made with ❤️ for the family trip</p>
+    <p style="margin-top: 4px; font-size: 12px;">Last updated: Feb 15, 2026</p>
+  </div>
+
+</div>
+
+</body>
+</html>
